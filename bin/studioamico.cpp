@@ -1,42 +1,24 @@
-/**
- * @file studioamico.cpp
- *
- * @version 01.01 202145
- *
- * @brief https://training.olinfo.it/#/task/abc_studioamico/statement
- *
- * @ingroup studioamico
- * (Note: this needs exactly one @defgroup somewhere)
- *
- * @author Castellani Davide
- *
- * Contact: contacts@castellanidavide.it
- *
- */
-
-// Includes
 #include <bits/stdc++.h>
 using namespace std;
 
-// Variabiles
-int N;
+vector <int> a1, a2;
 
-// Main code
-int main()
-{
-  // Cncomment the following lines if you want to read/write from files
-  // freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", stdout);
+bool associabili(int N, int* v1, int* v2) {
+    a1.resize(N);
+    a2.resize(N);
 
-  // Input
-  cin >> N;
+    for (int i = 0; i < N; ++i)
+    {
+        a1[i] = v1[i];
+        a2[i] = v2[i];
+    }
 
-  // Code
-  // ...
+    sort(a1.begin(), a1.end());
+    sort(a2.begin(), a2.end());
 
-  // Output
-  cout << N << endl;
+    for (int i = 0; i < N; ++i)
+        if (a2[i] <= a1[i])
+            return false;
 
-  // End
-  return 0;
+    return true;
 }
